@@ -30,6 +30,6 @@ AIORC.build.mcu=atmega2560
 AIORC.build.f_cpu=16000000L
 AIORC.build.board=AVR_MEGA2560
 AIORC.build.core=arduino
-AIORC.build.variant=standard
+AIORC.build.variant=AIORC2.1
 
 ##############################################################
