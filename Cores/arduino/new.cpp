@@ -18,18 +18,19 @@
 
 #include <stdlib.h>
 
-extern "C" void __cxa_pure_virtual(void) __attribute__ ((__noreturn__));
-extern "C" void __cxa_deleted_virtual(void) __attribute__ ((__noreturn__));
-
-void __cxa_pure_virtual(void) {
-  // We might want to write some diagnostics to uart in this case
-  //std::terminate();
-  abort();
+void *operator new(size_t size) {
+  return malloc(size);
 }
 
-void __cxa_deleted_virtual(void) {
-  // We might want to write some diagnostics to uart in this case
-  //std::terminate();
-  abort();
+void *operator new[](size_t size) {
+  return malloc(size);
+}
+
+void operator delete(void * ptr) {
+  free(ptr);
+}
+
+void operator delete[](void * ptr) {
+  free(ptr);
 }
 
